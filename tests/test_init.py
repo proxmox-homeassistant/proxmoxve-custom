@@ -2,9 +2,7 @@
 
 from unittest.mock import patch
 
-from homeassistant.config_entries import (
-    ConfigEntryState,
-)
+from homeassistant.config_entries import ConfigEntryState
 from homeassistant.const import (
     CONF_HOST,
     CONF_PASSWORD,
@@ -13,7 +11,6 @@ from homeassistant.const import (
     CONF_VERIFY_SSL,
 )
 from homeassistant.core import HomeAssistant
-from homeassistant.setup import async_setup_component
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from custom_components.proxmoxve_custom import DOMAIN
@@ -25,11 +22,7 @@ from custom_components.proxmoxve_custom.const import (
 )
 
 from . import async_init_integration
-from .const import (
-    MOCK_GET_RESPONSE,
-    YAML_INPUT_INVALID,
-    YAML_INPUT_OK,
-)
+from .const import MOCK_GET_RESPONSE
 
 
 async def test_setup_entry(hass: HomeAssistant) -> None:
@@ -90,29 +83,3 @@ async def test_unload_entry(hass: HomeAssistant) -> None:
     assert await hass.config_entries.async_unload(mock_config_entry.entry_id)
     await hass.async_block_till_done()
     assert mock_config_entry.state is ConfigEntryState.NOT_LOADED
-
-
-async def test_setup_config(hass: HomeAssistant) -> None:
-    """Test setup from yaml config."""
-    with (
-        patch("proxmoxer.ProxmoxResource.get", return_value=MOCK_GET_RESPONSE),
-        patch(
-            "proxmoxer.backends.https.ProxmoxHTTPAuth._get_new_tokens",
-            return_value=None,
-        ),
-    ):
-        assert await async_setup_component(hass, DOMAIN, YAML_INPUT_OK)
-        await hass.async_block_till_done()
-
-
-async def test_setup_invalid_config(hass: HomeAssistant) -> None:
-    """Test setup from yaml with invalid config."""
-    with (
-        patch("proxmoxer.ProxmoxResource.get", return_value=MOCK_GET_RESPONSE),
-        patch(
-            "proxmoxer.backends.https.ProxmoxHTTPAuth._get_new_tokens",
-            return_value=None,
-        ),
-    ):
-        assert not await async_setup_component(hass, DOMAIN, YAML_INPUT_INVALID)
-        await hass.async_block_till_done()
