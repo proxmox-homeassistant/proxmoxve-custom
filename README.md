@@ -7,8 +7,6 @@
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data and controls from your instance.
 
-This integration started as improvements to the [Home Assistant core's Proxmox VE integration](https://www.home-assistant.io/integrations/proxmoxve/), but I'm new to programming and couldn't meet all of the core's code requirements. So I decided to keep it as a custom integration. Therefore, when installing this, the core integration will be replaced.
-
 After configuring this integration, the following information is available:
 
  - Binary sensor entities with the status of node and selected virtual machines/containers.
@@ -31,7 +29,7 @@ The integration provides sensors that monitor failed tasks on your Proxmox nodes
 The failed task sensors help you monitor the health of your Proxmox operations and quickly identify when automated tasks encounter issues.
 
 > [!IMPORTANT]  
-> See the section on Proxmox user permissions [here](https://github.com/dougiteixeira/proxmoxve#proxmox-permissions).
+> See the section on Proxmox user permissions [here](https://github.com/proxmox-homeassistant/proxmoxve-custom#proxmox-permissions).
 
 ## Install
 
@@ -41,17 +39,14 @@ Have [HACS](https://hacs.xyz/) installed, this will allow you to update easily.
 
 * Adding Proxmox VE to HACS can be using this button:
 
-[![image](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=dougiteixeira&repository=proxmoxve&category=integration)
-
-> [!NOTE]
-> If the button above doesn't work, add `https://github.com/dougiteixeira/proxmoxve` as a custom repository of type Integration in HACS.
+[![image](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=proxmox-homeassistant&repository=proxmoxve-custom&category=integration)
 
 * Click Install on the `Proxmox VE` integration.
 * Restart the Home Assistant.
 
 <details><summary>Manual installation</summary>
  
-* Copy `proxmoxve`  folder from [latest release](https://github.com/proxmox-homeassistant/proxmoxve-custom/releases/latest) to [`custom_components` folder](https://developers.home-assistant.io/docs/creating_integration_file_structure/#where-home-assistant-looks-for-integrations) in your config directory.
+* Copy `proxmoxve-custom`  folder from [latest release](https://github.com/proxmox-homeassistant/proxmoxve-custom/releases/latest) to [`custom_components` folder](https://developers.home-assistant.io/docs/creating_integration_file_structure/#where-home-assistant-looks-for-integrations) in your config directory.
 * Restart the Home Assistant.
 </details>
 
@@ -59,7 +54,7 @@ Have [HACS](https://hacs.xyz/) installed, this will allow you to update easily.
 
 Adding Proxmox VE to your Home Assistant instance can be done via the UI using this button:
 
-[![image](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=proxmoxve)
+[![image](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start?domain=proxmoxve_custom)
 
 > [!TIP]
 > It is recommended to use token-based authentication for greater integration stability.
