@@ -4,6 +4,8 @@
   <img src="/custom_components/proxmoxve_custom/brand/logo.png">
 </picture>
 
+> [!NOTE]
+> This custom integration is derived from the work done at [dougiteixeira/proxmoxve](https://github.com/dougiteixeira/proxmoxve).
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data and controls from your instance.
 
