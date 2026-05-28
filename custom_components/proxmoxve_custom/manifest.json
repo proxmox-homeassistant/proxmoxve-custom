@@ -2,8 +2,8 @@
   "domain": "proxmoxve_custom",
   "name": "Proxmox VE Custom",
   "codeowners": [
-    ""@proxmox-homeassistant",
-    ""@dougiteixeira"
+    "@proxmox-homeassistant",
+    "@dougiteixeira"
   ],
   "config_flow": true,
   "documentation": "https://github.com/proxmox-homeassistant/proxmoxve_custom",
